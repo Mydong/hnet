@@ -1,9 +1,10 @@
-FROM alpine AS builder
-RUN apk add --no-cache git
-RUN git clone -b v3.1-beta https://github.com/Hideipnetwork/hideipnetwork-web.git /hnet
+FROM ioiox/node:16-alpine
+LABEL maintainer="Stille <stille@ioiox.com>"
 
-FROM node:alpine
-WORKDIR /usr/app
-COPY --from=builder /hnet .
-RUN npm install
-CMD ["npm", "start"]
+WORKDIR /app
+
+RUN git clone -b v3.1-beta https://github.com/Hideipnetwork/hideipnetwork-web.git . && npm install
+
+EXPOSE 56559
+
+CMD ["npm", "run", "start"]
