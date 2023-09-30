@@ -1,9 +1,9 @@
-name: ci
+name: Build Docker Image
 
 on:
   push:
     branches:
-      - "main"
+      - "v3.1-beta"
 
 jobs:
   docker:
@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64, linux/arm64
           push: true
-          tags: sheepgreen/hnet:latest
+          tags: dockercommo/hnet:latest
