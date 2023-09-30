@@ -3,7 +3,7 @@ LABEL maintainer="Stille <stille@ioiox.com>"
 
 WORKDIR /app
 
-RUN git clone -b v3.1-beta https://github.com/Hideipnetwork/hideipnetwork-web.git . && npm install
+RUN git clone -b v3 https://github.com/Hideipnetwork/hideipnetwork-web.git . && npm install
 
 EXPOSE 56559
 
